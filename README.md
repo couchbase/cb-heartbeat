@@ -1,5 +1,5 @@
 
-[![GoDoc](http://godoc.org/github.com/tleyden/cb-heartbeat?status.png)](http://godoc.org/github.com/tleyden/cb-heartbeat)
+[![GoDoc](http://godoc.org/github.com/tleyden/cb-heartbeat?status.png)](http://godoc.org/github.com/tleyden/cb-heartbeat) [![Build Status](https://drone.io/github.com/couchbase/cb-heartbeat/status.png)](https://drone.io/github.com/couchbase/cb-heartbeat/latest)
 
 This provides a generic heartbeat mechanism for anything that needs to run in
 multiple nodes (machines, or even just in multiple processes on one machine) and
