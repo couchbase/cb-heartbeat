@@ -87,7 +87,15 @@ func NewCouchbaseHeartbeater(couchbaseUrl, bucketName, keyPrefix, nodeUuid strin
 }
 
 // Kick off the heartbeat sender with the given interval, in milliseconds.
+// This method will BLOCK until the first heartbeat is sent, and the rest
+// will happen asynchronously.
 func (h *couchbaseHeartBeater) StartSendingHeartbeats(intervalMs int) error {
+
+	// send the first heartbeat in the current goroutine and return
+	// an error if it fails
+	if err := h.sendHeartbeat(intervalMs); err != nil {
+		return err
+	}
 
 	ticker := time.NewTicker(time.Duration(intervalMs) * time.Millisecond)
 
